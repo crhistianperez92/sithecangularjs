@@ -14,4 +14,8 @@ export class ApisService {
     return this.http.get(url);
   }
 
+  getPokemonDetail(url: string): Observable<any>{
+    return this.http.get(url);
+  }
+
 }

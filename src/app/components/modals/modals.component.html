@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>No. {{pokemon.order}}</h1>
+<div mat-dialog-content style="width: 600px;">
+  <h4>Nombre: {{pokemon.name.toUpperCase()}}</h4>
+  <span *ngFor="let tipo of pokemon.types">
+        {{tipo.type.name}} /
+  </span>
+  <div class="row">
+    <div class="col-lg-6">
+      <img [src]="pokemon.sprites.front_default" alt="" style="width: 100%">
+      <h1>Movimientos:</h1>
+      <p *ngFor="let move of pokemon.moves">
+        {{move.move.name}}
+      </p>
+    </div>
+    <div class="col-lg-6">
+      <h1>Habilidades</h1>
+      <p *ngFor="let habilida of pokemon.abilities">
+        {{habilida.ability.name}}
+      </p>
+      <h1>Aparece en los Juegos:</h1>
+      <p *ngFor="let game of pokemon.game_indices">
+        {{game.version.name}}
+      </p>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

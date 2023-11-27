@@ -2,7 +2,7 @@
   <div *ngFor="let pokemon of listaPokemon" class="card border-primary mb-3" style="max-width: 20rem;">
     <div class="card-header">{{pokemon.name}}</div>
     <div class="card-body">
-      <a href="/pokemon/detail/" class="btn btn-success">Detalle</a>
+      <button class="btn btn-success" (click)="openDialogCustom(pokemon.url)">Ver detalle</button>
     </div>
   </div>
 </div>
