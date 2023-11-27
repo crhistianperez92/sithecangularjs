@@ -12,4 +12,8 @@ export class ModalsComponent {
      this.pokemon = data;
      console.log(data);
   }
+
+  guardarFavorito(){
+     var favoritos = localStorage.getItem("favoritos")
+  }
 }
