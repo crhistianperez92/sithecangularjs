@@ -1,14 +1,27 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import {ApisService} from "./services/apis.service";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'sithecangular';
+  title = 'apisangular';
+  responseData: any;
+  btnPrev: string = '';
+  btnNext: string = '';
+
+  constructor(private _api: ApisService) {
+  }
+  ngAfterViewInit() {
+    this._api.getPokemon().subscribe(data => {
+      console.log(data)
+      this.btnNext = data.next;
+      this.btnPrev = data.previous;
+      this.responseData = data.results;
+    }, error => {
+      console.log(error)
+    });
+  }
 }
