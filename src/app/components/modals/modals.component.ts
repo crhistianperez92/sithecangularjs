@@ -16,10 +16,6 @@ export class ModalsComponent {
 
   guardarFavorito(){
      let favoritos = localStorage.getItem("favoritos")
-     if(favoritos){
-       favoritos = parseJson(favoritos);
-     }
-
 
   }
 }
