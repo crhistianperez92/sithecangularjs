@@ -1,5 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {parseJson} from "@angular/cli/src/utilities/json-file";
 
 @Component({
   selector: 'app-modals',
@@ -14,6 +15,11 @@ export class ModalsComponent {
   }
 
   guardarFavorito(){
-     var favoritos = localStorage.getItem("favoritos")
+     let favoritos = localStorage.getItem("favoritos")
+     if(favoritos){
+       favoritos = parseJson(favoritos);
+     }
+
+
   }
 }
